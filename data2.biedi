@@ -1,0 +1,154 @@
+class _prefix_0
+{
+	objectType="prefix";
+	class Arguments
+	{
+		VERSION="9";
+		ADDON="vbs2_people_us_army_rifleman_ucp";
+	};
+	layers[]={};
+	DeletedMapObjects[]={};
+	Biotope="";
+	BiotopeFile="";
+	TerrainModifs[]={0,0,0,0,0};
+	SnowModifs[]={0,0,0,0,0};
+	SeastatesRandomSeed=10073248;
+};
+class _unit_0
+{
+	objectType="unit";
+	height=-1.014835;
+	class Arguments
+	{
+		SIDE="west";
+		TYPE="VBS2_US_ARMY_AAGunner_UCP_M_medium_none_none_M4CCOStinger";
+		PLAYER="true";
+		PLAYABLE="true";
+		AZIMUT="0.00000";
+                POSITION="[1000,1000,0]";
+		COLOR="[0.599989473819733,0.599989473819733,0.999982476234436]";
+		DISPLAY_NAME="(P) (PL) AA Gunner - M4 CCO / Stinger";
+		DISPLAY_NAME_TREE="(P) (PL) AA Gunner - M4 CCO / Stinger";
+		PARENT_UNIT="";
+	};
+};
+class _unit_1
+{
+	objectType="unit";
+	height=-1.014843;
+	class Arguments
+	{
+		SIDE="west";
+		TYPE="VBS2_US_ARMY_AAGunner_UCP_M_medium_none_none_M4CCOStinger";
+		AZIMUT="0.00000";
+                POSITION="[1001,1000,0]";
+		COLOR="[0.599989473819733,0.599989473819733,0.999982476234436]";
+		DISPLAY_NAME="AA Gunner - M4 CCO / Stinger";
+		DISPLAY_NAME_TREE="AA Gunner - M4 CCO / Stinger";
+		PARENT_UNIT="";
+	};
+};
+class _unit_2
+{
+	objectType="unit";
+	height=-1.0148473;
+	class Arguments
+	{
+		SIDE="west";
+		TYPE="VBS2_US_ARMY_AAGunner_UCP_M_medium_none_none_M4CCOStinger";
+		AZIMUT="0.00000";
+                POSITION="[1002,1000,0]";
+		COLOR="[0.599989473819733,0.599989473819733,0.999982476234436]";
+		DISPLAY_NAME="AA Gunner - M4 CCO / Stinger";
+		DISPLAY_NAME_TREE="AA Gunner - M4 CCO / Stinger";
+		PARENT_UNIT="";
+	};
+};
+class _unit_3
+{
+	objectType="unit";
+	height=-1.0148454;
+	class Arguments
+	{
+		SIDE="west";
+		TYPE="VBS2_US_ARMY_AAGunner_UCP_M_medium_none_none_M4CCOStinger";
+		AZIMUT="0.00000";
+                POSITION="[1003,1000,0]";
+		COLOR="[0.599989473819733,0.599989473819733,0.999982476234436]";
+		DISPLAY_NAME="AA Gunner - M4 CCO / Stinger";
+		DISPLAY_NAME_TREE="AA Gunner - M4 CCO / Stinger";
+		PARENT_UNIT="";
+	};
+};
+class _unit_4
+{
+	objectType="unit";
+	height=-1.0148457;
+	class Arguments
+	{
+		SIDE="west";
+		TYPE="VBS2_US_ARMY_AAGunner_UCP_M_medium_none_none_M4CCOStinger";
+		AZIMUT="0.00000";
+                POSITION="[1004,1000,0]";
+		COLOR="[0.599989473819733,0.599989473819733,0.999982476234436]";
+		DISPLAY_NAME="AA Gunner - M4 CCO / Stinger";
+		DISPLAY_NAME_TREE="AA Gunner - M4 CCO / Stinger";
+		PARENT_UNIT="";
+	};
+};
+class _unit_5
+{
+	objectType="unit";
+	height=-1.01484;
+	class Arguments
+	{
+		SIDE="west";
+		TYPE="VBS2_US_ARMY_AAGunner_UCP_M_medium_none_none_M4CCOStinger";
+		AZIMUT="0.00000";
+                POSITION="[1005,1000,0]";
+		COLOR="[0.599989473819733,0.599989473819733,0.999982476234436]";
+		DISPLAY_NAME="AA Gunner - M4 CCO / Stinger";
+		DISPLAY_NAME_TREE="AA Gunner - M4 CCO / Stinger";
+		PARENT_UNIT="";
+	};
+};
+class _unit_6
+{
+	objectType="unit";
+	height=-1.0148381;
+	class Arguments
+	{
+		SIDE="west";
+		TYPE="VBS2_US_ARMY_AAGunner_UCP_M_medium_none_none_M4CCOStinger";
+		AZIMUT="0.00000";
+                POSITION="[1006,1000,0]";
+		COLOR="[0.599989473819733,0.599989473819733,0.999982476234436]";
+		DISPLAY_NAME="AA Gunner - M4 CCO / Stinger";
+		DISPLAY_NAME_TREE="AA Gunner - M4 CCO / Stinger";
+		PARENT_UNIT="";
+	};
+};
+class _unit_7
+{
+	objectType="unit";
+	height=-1.0148423;
+	class Arguments
+	{
+		SIDE="west";
+		TYPE="VBS2_US_ARMY_AAGunner_UCP_M_medium_none_none_M4CCOStinger";
+		AZIMUT="0.00000";
+                POSITION="[1007,1000,0]";
+		COLOR="[0.599989473819733,0.599989473819733,0.999982476234436]";
+		DISPLAY_NAME="AA Gunner - M4 CCO / Stinger";
+		DISPLAY_NAME_TREE="AA Gunner - M4 CCO / Stinger";
+		PARENT_UNIT="";
+	};
+};
+
+class _postfix_0
+{
+	objectType="postfix";
+	class Arguments
+	{
+	};
+};

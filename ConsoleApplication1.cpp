@@ -2,108 +2,108 @@
 // This program opens two files. It uses  
 // fclose to close the first file and  
 // _fcloseall to close all remaining files.  
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <stdio.h> 
+#include <string.h>
 #include <iostream>
 
 FILE *stream, *stream2;
-char aline[200];
-char *missionFile="mission.biedi";
+char aline[500];
+char missionFile[]="mission.biedi";
 int i;
-int j;
-char position[100] = "                POSITION=\"[";
-char buffer[200];
+int x,y,z;
+char position[500] = "                POSITION=\"[";
+char buffer[500];
 
 using namespace std;
 int main(int argc, char *argv[], char *envp[])
 {
 	int err;
-
-	int iNumberLines = 0;    // Default is no line numbers.  
-
-							 // If /n is passed to the .exe, display numbered listing  
-							 // of environment variables.  
-	printf("argc = %d\n", argc);
-	for (i = 0; i < argc; i++)
-		printf("argv[%d] = %s\n", i,argv[i]);
-
-	if ((argc == 2) && _stricmp(argv[1], "/n") == 0)
-		iNumberLines = 1;
-
-	// Walk through list of strings until a NULL is encountered.  
-	for (int i = 0; envp[i] != NULL; ++i) {
-		if (iNumberLines)
-			cout << i << ": " << envp[i] << "\n";
+	int incX=1,incY=0,incZ=0;
+	
+	if( argc == 3) // user entered 2 arguments, assume x y increments
+	{
+		incX=atoi(argv[1]);
+		incY=atoi(argv[2]);
 	}
-
-	int inc;
-
-	inc = atoi(argv[1]);
-	printf("%d\n", inc);
-		getchar();
-
+	else if( argc == 2) // 1 argument, assume x increment
+		incX=atoi(argv[1]);
+	else if( argc == 1) // no arguments
+		cout <<"No user inputs. Using default increments 1,0,0\n";
+	else
+	{
+		cout << "Invalid Input: incX [incY]\n";
+		exit (-3);
+	}
+	
+	cout << "incX=" << incX << "," << "incY=" << incY << "\n";
+	cout << "Press Enter to continue:";
+	getchar();
+	
+	
 	// Open for read (will fail if file "mission.biedi" does not exist)  
 	stream=fopen(missionFile, "r");
 	if (stream)
-	{
 		printf("The file '%s' was opened\n",missionFile);
-	}
 	else
 	{
 		printf("The file '%s' was not opened\n", missionFile);
-		//getchar();
+		exit(-1);
 	}
 
 	// Open new mission file for write  
 
-	stream2=fopen("data2.biedi", "w+");
+	stream2=fopen("data2.biedi", "w");
 	if (stream2)
-	{
 		printf("The file 'data2.biedi' was opened\n");
-	}
 	else
 	{
 		printf("The file 'data2.biedi' was not opened\n");
+		exit(-2);
 	}
 
-	j = 1000;
-	for (i = 0; i < 2000; i++) {
-	fgets(aline, 200, stream);
-	if (feof(stream))
-		break;
-	printf("%s", aline);
-	if (strstr(aline, "POSITION")) {
-		sprintf(buffer, "%s%d,%d,%d]\";", position,j,1000,0);
-		j+=inc;
-		printf("%s", buffer);
-		fputs(buffer, stream2);
-		fputs("\n",stream2);
-		//getchar();
+	// init the starting x,y,z
+	// the center of the box in the mission map
+	x = 1000; 
+	y = 1000;
+	z = 0;
+	
+	for (i = 0; i < 20000; i++) {
+		fgets(aline, 500, stream);
+		if (feof(stream))
+			break;
+		printf("%s", aline);
+		if (strstr(aline, "POSITION")) {
+			sprintf(buffer, "%s%d,%d,%d]\";", position,x,y,z);
+			x += incX;
+			y += incY;
+			z += incZ;
+			printf("%s", buffer);
+			fputs(buffer, stream2);
+			fputs("\n",stream2);
+		}
+		else	
+			fputs(aline, stream2);
 	}
-	else	
-		fputs(aline, stream2);
-	}
-
-	//fprintf(stream2, "Hello World\n");
-
 
 	// Close stream if it is not NULL   
 	if (stream)
-	{
 		err = fclose(stream);
-		if (err == 0)
-		{
-			printf("The file 'mission.biedi' was closed\n");
-		}
-		else
-		{
-			printf("The file 'mission.biedi' was not closed\n");
-		}
-	}
+	if (err == 0)
+		printf("The file 'mission.biedi' was closed\n");
+	else
+		printf("The file 'mission.biedi' was not closed\n");
 
-	// All other files are closed:  
-	int numclosed = _fcloseall();
-	printf("Number of files closed by _fcloseall: %u\n", numclosed);
-
+	// Close stream2 if it is not NULL   
+	if (stream2)
+		err = fclose(stream2);
+	if (err == 0)
+		printf("The file 'data2.biedi' was closed\n");
+	else
+		printf("The file 'data2.biedi' was not closed\n");
+	
+	printf("%d lines processed\nPress Enter to exit:",i);
 	getchar();
+	
+	return (0);
 }
